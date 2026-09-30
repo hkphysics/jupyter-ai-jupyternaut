@@ -439,7 +439,7 @@ class JupyternautPersona(BasePersona):
                         if block.get("type") == "text-delta":
                             yield block.get("text", "")
                         elif block.get("type") == "reasoning-delta":
-                            yield block.get('reasoning', '')
+                            yield {"type": "reasoning", "content": block.get("reasoning", "")}
                         continue
 
                     # Fallback shape: the `messages` event carries a message
